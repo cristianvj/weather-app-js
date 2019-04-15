@@ -1,10 +1,14 @@
-require ('./index.css')
-const {Weather} = require('./Weather')
-const weather = new Weather('London','uk')
+const {Weather} = require('./Weather');
+const {UI} = require('./UI')
+
+const weather = new Weather('London','uk');
+const ui = new UI();
+
+require ('./index.css');
 
 async function fetchWeather(){
      const data = await weather.getWeather();
-     console.log(data )
+     ui.render(data)
 }
 
-document.addEventListener('DOMContentLoader', fetchWeather)
+document.addEventListener('DOMContentLoader', fetchWeather())
